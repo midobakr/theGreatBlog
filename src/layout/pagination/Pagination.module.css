@@ -1,0 +1,29 @@
+.container {
+  min-height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  font-size: 32px;
+  list-style: none;
+  flex-grow: 2;
+}
+.list li {
+  margin-left: 20px;
+  /* border-bottom: 1px solid white; */
+  text-align: center;
+  /* background-color: red; */
+  color: white;
+}
+.controller {
+  margin: 0 20px;
+  flex-grow: 1;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.container {
+  color: white;
+}
+.imageContainer {
+  /* border: 1px solid red; */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.image {
+  /* border: 2px solid red; */
+  width: 700px;
+  max-height: 500px;
+}

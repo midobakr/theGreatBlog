@@ -2,8 +2,9 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import Nav from "../layout/nav";
 import Catigories from "../layout/Catigories";
-// import Pagination from "../layout/pagination/Pagination";
-import "./main.css";
+import Pagination from "../layout/pagination/Pagination";
+// import { StaticImage } from "gatsby-plugin-image";
+// import { MDXRenderer } from "gatsby-plugin-mdx";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import {
   blog,
@@ -14,22 +15,23 @@ import {
   title,
   myLink,
   date,
+  main,
 } from "./index.module.css";
 
 // styles
 // markup
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, pageContext }) => {
   console.log("my data \n", data);
 
   return (
-    <main>
+    <main className={main}>
       <Nav />
-      <Catigories />
+      <Catigories activeCategory={pageContext.category} />
 
       <div style={{ margin: "10px" }}>
-        {data.allMdx.nodes.map((node) => (
-          <Link to={"blog/" + node.id} key={node.id} className={myLink}>
-            <article className={blog}>
+        {data.allMdx.nodes.map((node, index) => (
+          <Link to={"/blog/" + node.id} className={myLink}>
+            <article className={blog} key={node.id}>
               <div className={box}>
                 <GatsbyImage
                   className={Image}
@@ -47,13 +49,19 @@ const IndexPage = ({ data }) => {
           </Link>
         ))}
       </div>
+      <Pagination data={pageContext} />
     </main>
   );
 };
 
 export const query = graphql`
-  query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 4) {
+  query ($skip: Int = 0, $limit: Int, $filter: MdxFilterInput) {
+    allMdx(
+      limit: $limit
+      skip: $skip
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: $filter
+    ) {
       nodes {
         frontmatter {
           date(formatString: "MMMM D, YYYY")
@@ -61,7 +69,7 @@ export const query = graphql`
           introduction
           image {
             childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED)
+              gatsbyImageData(width: 800)
             }
           }
         }

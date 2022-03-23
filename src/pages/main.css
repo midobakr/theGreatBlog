@@ -1,0 +1,23 @@
+:root {
+  --active-color: #eee;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  /* border: 2px solid springgreen; */
+  height: 100%;
+}
+
+body {
+  background-color: black;
+  /* border: 12px solid teal; */
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

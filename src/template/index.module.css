@@ -1,0 +1,54 @@
+.main {
+  height: 100%;
+}
+.header {
+  border: 1px solid blue;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.blog {
+  height: 300px;
+  border: 2px solid #bbb;
+
+  padding: 20px;
+  padding-left: 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 30px 0;
+}
+.Image {
+  width: 500px;
+  height: 100%;
+}
+.box {
+  padding: 0 15px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.title {
+  margin-bottom: 35px;
+}
+.introduction {
+  padding: 10px;
+  height: 150px;
+
+  overflow: hidden;
+}
+.myLink {
+  text-decoration: none;
+  color: black;
+}
+.date {
+  align-self: flex-end;
+  margin-top: auto;
+}
+.box2 {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
